@@ -14,10 +14,10 @@ public class ReadImageAndConvertToByte
             final Base64.Decoder decoder = Base64.getDecoder();
             File file = new File("C:\\Users\\rwg\\Desktop\\Face_FRONT_01.png");
             byte[] fileByte = Files.readAllBytes(file.toPath());
-            byte[] aaa = decoder.decode(fileByte);
+            byte[] aaa3aa = decoder.decode(fileByte);
 
             FileOutputStream out = new FileOutputStream("C:\\Users\\rwg\\Desktop\\Face_FRONT_02.png");
-            out.write(aaa);
+            out.write(aaa3aa);
             out.close();
         }
         catch (Exception e)

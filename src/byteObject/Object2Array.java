@@ -20,7 +20,7 @@ public class Object2Array {
 
     public static void main(String[] args) {
         System.out.println(Runtime.getRuntime().availableProcessors());
-        Person person = new Person("Jone", 25, "good person");
+        Person person = new Person("Jo2ne", 25, "good person");
         byte[] objectToByteArray = objectToByteArray(person);
         System.out.println("objectToByteArray: " + objectToByteArray);
         Object byteArrayToObject = byteArrayToObject(objectToByteArray);
