@@ -5,10 +5,8 @@ package testDemoooo;
  * .equals比较的值，随意相同。
  */
 
-public class TestDengYuAndEquals
-{
-    public static void main(String[] args)
-    {
+public class TestDengYuAndEquals {
+    public static void main(String[] args) {
         String name1 = "tom";
         String name2 = new String("tom");
         System.out.println(name1 == name2);
