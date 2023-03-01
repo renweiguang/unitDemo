@@ -22,7 +22,13 @@ public class FindK {
                 }
             }
         }
-        //获取排序后的奇数集合
+//        //获取排序后的奇数集合
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] % 2 == 1) {
+//                list.add(arr[i]);
+//            }
+//        }
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 1) {
@@ -36,6 +42,5 @@ public class FindK {
         } catch (Exception e) {
             return 0;
         }
-
     }
 }
