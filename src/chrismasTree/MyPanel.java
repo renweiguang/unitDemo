@@ -14,7 +14,7 @@ import java.net.URL;
 public class MyPanel extends JPanel implements ActionListener {
 
     // 图片、音乐路径
-    static final String dad = "src/resource/8b0affe2bb63ca6146a26828988e970.jpg";
+    static final String dad = "src/resource/img.png";
     static final String MUSIC = "src/resource/music.wav";
     static final String STAR_SHINE = "src/resource/STAR_SHINE.png";
     static final String STAR_NOT_SHINE = "src/resource/STAR_NOT_SHINE.png";
@@ -112,7 +112,7 @@ public class MyPanel extends JPanel implements ActionListener {
 
     void drawTree2(int from, int to, Graphics g) {
         ImageIcon image1 = new ImageIcon(dad);
-        g.drawImage(image1.getImage(), x + 20, y + 10, 60, 60, null);
+        g.drawImage(image1.getImage(), x + 20, y + 10,  60, 60, null);
         Color c = new Color(173, 95, 255, 0);
         g.setColor(c);
         for (int i = from; i <= to; i++) {

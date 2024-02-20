@@ -1,24 +1,20 @@
 package duotaidemo;
 
-public class Cat extends Animal
-{
+public class Cat extends Animal {
     private int age = 19;
 
     @Override
-    public int getAge()
-    {
+    public int getAge() {
         return age;
     }
 
     @Override
-    public void setAge(int age)
-    {
+    public void setAge(int age) {
         this.age = age;
     }
 
     @Override
-    public void eat()
-    {
+    public void eat() {
         super.eat();
     }
 }

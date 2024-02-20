@@ -15,7 +15,7 @@ public class MyFrame extends JFrame {
         validate();
         setDefaultCloseOperation(MyFrame.EXIT_ON_CLOSE);
 
-        JLabel label1 = new JLabel("Merry Christmas " + "达欣欣儿");
+        JLabel label1 = new JLabel("Merry Christmas " + "小哪吒");
         label1.setFont(new Font("",1,30));
         label1.setForeground(Color.red);
         label1.setBounds(250,300,500,400);

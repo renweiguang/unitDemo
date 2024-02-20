@@ -1,71 +1,83 @@
 package fastJsonAndJsonField;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class JSONObjectTest {
 
     public static void main(String[] args) {
-        String jsonString = "{\"birthday\":1607564748812,\"sex\":\"男\",\"yyy\":\"明明\",\"xxx\":1,\"age\":1}";
-        System.out.println(jsonString);
+//        String jsonString = "{\"birthday\":1607564748812,\"sex\":\"男\",\"yyy\":\"明明\",\"xxx\":1,\"age\":1}";
+//        System.out.println(jsonString);
+//
+//        People people = JSONObject.parseObject(jsonString, People.class);
+//        System.out.println("String格式的json字符串转为实体类为:" + people);
+//
+//        JSONObject jsonObjectString = JSONObject.parseObject(jsonString);
+//        System.out.println("String格式的json字符串转为JsonObject格式的json字符串为：" + jsonObjectString);
+//
+//        String jsonString1 = JSONObject.toJSONString(jsonObjectString);
+//        System.out.println(jsonString.equals(jsonString1));
+//
+//        if (jsonString.equals(String.valueOf(jsonObjectString))) {
+//            System.out.println("json字符串和JsonObject格式的json字符串一模一样");
+//        }
+//
+//        //创建JSON对象
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("id", 1);
+//        jsonObject.put("age", 1);
+//        jsonObject.put("name", "明明");
+//        jsonObject.put("sex", "男");
+//        jsonObject.put("birthday", new Date());
+//        System.out.println("json字符串为：");
+//        System.out.println(jsonObject);
+//        System.out.println(jsonObject.toJSONString());
+//
+//        String name1 = jsonObject.getString("name");
+//        System.out.println("获取json字符串中的name为：" + name1);
+//
+//        System.out.println("将json字符串转换为map 去遍历");
+//        Set<Map.Entry<String, Object>> a = jsonObject.entrySet();
+//        for (Map.Entry<String, Object> map : a) {
+//            System.out.println("map的key为：" + map.getKey() + "      map的value为：" + map.getValue());
+//        }
+//
+//        //将JSON格式转换为Object
+//        People jsonToObject = JSONObject.toJavaObject(jsonObject, People.class);
+//        System.out.println("将JSON转换为Object：");
+//        System.out.println(jsonToObject.toString() + "\n");
+//
+//        //将Object转换为JSON字符串
+//        String objectToStr = JSONObject.toJSONString(jsonToObject);
+//        System.out.println("将Object转换为JSON字符串：");
+//        System.out.println(objectToStr + "\n");
+//
+//        //将JSON字符串转换为JSON格式
+//        JSONObject strToJson = JSONObject.parseObject(objectToStr);
+//        System.out.println(strToJson);
+//        //通过JSONObject获取属性
+//        System.out.println("名称为：" + jsonObject.getString("name"));
+//        int id = (int) strToJson.get("id");
+//        int age = (int) strToJson.get("age");
+//        String name = (String) strToJson.get("name");
+//        String sex = (String) strToJson.get("sex");
+//        Date birthday = new Date((long) strToJson.get("birthday"));
+//        System.out.println("字符串转换为JSON格式：");
+//        System.out.println("通过JSON对象获取到的属性：id：" + id + ",age:" + age + ",name:" + name + ",sex:" + sex + "," + birthday);
 
-        People people = JSONObject.parseObject(jsonString, People.class);
-        System.out.println("String格式的json字符串转为实体类为:" + people);
 
-        JSONObject jsonObjectString = JSONObject.parseObject(jsonString);
-        System.out.println("String格式的json字符串转为JsonObject格式的json字符串为：" + jsonObjectString);
-
-        String jsonString1 = JSONObject.toJSONString(jsonObjectString);
-        System.out.println(jsonString.equals(jsonString1));
-
-        if (jsonString.equals(String.valueOf(jsonObjectString))) {
-            System.out.println("json字符串和JsonObject格式的json字符串一模一样");
-        }
-
-        //创建JSON对象
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", 1);
-        jsonObject.put("age", 1);
-        jsonObject.put("name", "明明");
-        jsonObject.put("sex", "男");
-        jsonObject.put("birthday", new Date());
-        System.out.println("json字符串为：");
-        System.out.println(jsonObject);
-        System.out.println(jsonObject.toJSONString());
-
-        String name1 = jsonObject.getString("name");
-        System.out.println("获取json字符串中的name为：" + name1);
-
-        System.out.println("将json字符串转换为map 去遍历");
-        Set<Map.Entry<String, Object>> a = jsonObject.entrySet();
-        for (Map.Entry<String, Object> map : a) {
-            System.out.println("map的key为：" + map.getKey() + "      map的value为：" + map.getValue());
-        }
-
-        //将JSON格式转换为Object
-        People jsonToObject = JSONObject.toJavaObject(jsonObject, People.class);
-        System.out.println("将JSON转换为Object：");
-        System.out.println(jsonToObject.toString() + "\n");
-
-        //将Object转换为JSON字符串
-        String objectToStr = JSONObject.toJSONString(jsonToObject);
-        System.out.println("将Object转换为JSON字符串：");
-        System.out.println(objectToStr + "\n");
-
-        //将JSON字符串转换为JSON格式
-        JSONObject strToJson = JSONObject.parseObject(objectToStr);
-        System.out.println(strToJson);
-        //通过JSONObject获取属性
-        System.out.println("名称为：" + jsonObject.getString("name"));
-        int id = (int) strToJson.get("id");
-        int age = (int) strToJson.get("age");
-        String name = (String) strToJson.get("name");
-        String sex = (String) strToJson.get("sex");
-        Date birthday = new Date((long) strToJson.get("birthday"));
-        System.out.println("字符串转换为JSON格式：");
-        System.out.println("通过JSON对象获取到的属性：id：" + id + ",age:" + age + ",name:" + name + ",sex:" + sex + "," + birthday);
+        String json = "{\"bankList\":[{\"bankCode\":\"CCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CCB.png\",\"bankShortName\":\"中国建设银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://storage.jd.com/protocols/format/8c7f814b202d50bf8a84392d2f488878.html\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"ICBC\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/ICBC.png\",\"bankShortName\":\"中国工商银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7327224\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"ABC\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/ABC.png\",\"bankShortName\":\"中国农业银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7325246\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BOC\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOC.png\",\"bankShortName\":\"中国银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7300476\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"PSBC\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/PSBC.png\",\"bankShortName\":\"中国邮政储蓄银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7366119\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BCM\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BCM.png\",\"bankShortName\":\"交通银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7417783\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"CMB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CMB.png\",\"bankShortName\":\"招商银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7367465\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"CMBC\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CMBC.png\",\"bankShortName\":\"中国民生银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7546077\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"HXB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/HXB.png\",\"bankShortName\":\"华夏银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7431513\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"CEB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CEB.png\",\"bankShortName\":\"中国光大银行\",\"cardList\":[]},{\"bankCode\":\"BOS\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOS.png\",\"bankShortName\":\"上海银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"http://storage.360buyimg.com/protocols/format/5f087e1b56815c1cb54ea8e813c70467.html?_t=1617355257184\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BOB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOB.png\",\"bankShortName\":\"北京银行\",\"cardList\":[]},{\"bankCode\":\"HZB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/HZB.png\",\"bankShortName\":\"杭州银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7350967\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"CGB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CGB.png\",\"bankShortName\":\"广发银行\",\"cardList\":[]},{\"bankCode\":\"PAB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/PAB.png\",\"bankShortName\":\"平安银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7390220\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"CIB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CIB.png\",\"bankShortName\":\"兴业银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7336928\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"CITIC\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CITIC.png\",\"bankShortName\":\"中信银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7385543\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BOGL\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOGL.png\",\"bankShortName\":\"桂林银行\",\"cardList\":[]},{\"bankCode\":\"ZJKCCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/ZJKCCB.png\",\"bankShortName\":\"张家口银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"http://storage.360buyimg.com/protocols/format/efe86b6090145079b8079659a722cf9e.html\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"JSB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/JSB.png\",\"bankShortName\":\"江苏银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7367154\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"NCCCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/NCCCB.png\",\"bankShortName\":\"四川天府银行\",\"cardList\":[]},{\"bankCode\":\"GDNX\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/GDNX.png\",\"bankShortName\":\"广东省农村信用社联合社\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7517648\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"XTB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/XTB.png\",\"bankShortName\":\"邢台银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7383400\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"JSNX\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/JSNX.png\",\"bankShortName\":\"江苏省农村信用社联合社\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7463481\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"HSB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/HSB.png\",\"bankShortName\":\"徽商银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7370560\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"SXNX\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/SXNX.png\",\"bankShortName\":\"山西省农村信用社联合社\",\"cardList\":[]},{\"bankCode\":\"GRCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/GRCB.png\",\"bankShortName\":\"广州农村商业银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7531552\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"NJCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/NJCB.png\",\"bankShortName\":\"南京银行\",\"cardList\":[]},{\"bankCode\":\"ZJTLCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/ZJTLCB.png\",\"bankShortName\":\"浙江泰隆商业银行\",\"cardList\":[]},{\"bankCode\":\"CZB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/CZB.png\",\"bankShortName\":\"浙商银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7354983\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7354983\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"SPDB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/SPDB.png\",\"bankShortName\":\"上海浦东发展银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7392314\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"QDCCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/QDCCB.png\",\"bankShortName\":\"青岛银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"http://storage.360buyimg.com/protocols/format/956c77da27975028ac451a8c0e03da2b.html\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"NBCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/NBCB.png\",\"bankShortName\":\"宁波银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7363506\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"LZCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/LZCB.png\",\"bankShortName\":\"兰州银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"http://storage.360buyimg.com/protocols/format/f8c89569f1f25163991f0e15dd95523c.html\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407 \"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BOSR\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOSR.png\",\"bankShortName\":\"上饶银行\",\"cardList\":[]},{\"bankCode\":\"ZYB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/ZYB.png\",\"bankShortName\":\"中原银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"http://storage.jd.com/protocols/format/cbd2246bdcc25c35b82191f8f3213b58.html\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"DRCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/DRCB.png\",\"bankShortName\":\"东莞农村商业银行\",\"cardList\":[]},{\"bankCode\":\"BOZJ\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOZJ.png\",\"bankShortName\":\"郑州银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7354982\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"SHXNX\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/SHXNX.png\",\"bankShortName\":\"陕西农信\",\"cardList\":[]},{\"bankCode\":\"QSB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/QSB.png\",\"bankShortName\":\"齐商银行\",\"cardList\":[]},{\"bankCode\":\"BOSJ\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOSJ.png\",\"bankShortName\":\"盛京银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"http://storage.jd.com/protocols/format/6d17b83411dd58b08b9fee1734ca2483.html\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BOTZ\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOTZ.png\",\"bankShortName\":\"台州银行股份有限公司\",\"cardList\":[]},{\"bankCode\":\"FDB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/FDB.png\",\"bankShortName\":\"富滇银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7362176\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"HBNX\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/HBNX.png\",\"bankShortName\":\"河北省农村信用社\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7372431\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BOGY\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOGY.png\",\"bankShortName\":\"贵阳银行\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7381504\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"BJRCB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BJRCB.png\",\"bankShortName\":\"北京农商银行\",\"cardList\":[]},{\"bankCode\":\"BOCS\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/BOCS.png\",\"bankShortName\":\"长沙银行股份有限公司\",\"cardList\":[{\"agreementList\":[{\"agreementDesc\":\"支付服务相关协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7392721\"},{\"agreementDesc\":\"京东支付服务协议\",\"agreementUrl\":\"https://qiye.jd.com/contractCenter2_noHead.html#/template-preview?cid=00006&sid=GRZF&tid=7145407\"}],\"cardType\":\"DE\",\"cardTypeName\":\"储蓄卡\",\"state\":1},{\"cardType\":\"CR\",\"cardTypeName\":\"信用卡\",\"state\":0,\"tips\":\"暂不支持信用卡\"}]},{\"bankCode\":\"LWB\",\"bankLogo\":\"http://storage.jd.com/payment-assets/sdk/bank/LWB.png\",\"bankShortName\":\"莱商银行\",\"cardList\":[]}],\"dialogTips\":\"<p style='color:red'>红色内容</p><p>非红色部分</p>\",\"showBankCount\":7}\n";
+        JSONObject jsonObject1 = JSONObject.parseObject(json);
+        String json2 = jsonObject1.getString("bankList");
+//        System.out.println(json2);
+        List<XyyDto> list = JSONObject.parseArray(json2,XyyDto.class);
+//        System.out.println(list);
+        Map<String,String> map = new HashMap<>();
+        list.stream().forEach(r -> {
+            map.put(r.getBankShortName(),r.getBankLogo());
+        });
+        System.out.println(JSON.toJSONString(map));
     }
 }

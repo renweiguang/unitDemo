@@ -16,7 +16,9 @@ public class testList {
     public static void main(String[] args) {
         List<Integer> numList = Lists.newArrayList(1, 1, 2, 3, 4, 5, 6, 7, 8);
         List<List<Integer>> lists = Lists.partition(numList, 3);
+        System.out.println(lists);
         Map<Integer, List<Integer>> map = lists.stream().flatMap(Collection::stream).collect(Collectors.groupingBy(Function.identity()));
+        System.out.println(map);
         map.values().stream().forEach(r -> r.stream().forEach(t -> System.out.println(t)));
     }
 }
